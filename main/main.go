@@ -11,7 +11,8 @@ func returnString(a, b string) (string, string) {
 }
 
 func main() {
-	ans, ans1 := returnString("Adi", "Lucky")
+	var ans, ans1 string
+	ans, ans1 = returnString("Adi", "Lucky")
 	fmt.Println(ans)
 	fmt.Println(ans1)
 
