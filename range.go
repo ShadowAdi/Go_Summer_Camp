@@ -1,19 +1,15 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
+func add_func(a, b int, op func(int, int) int) int {
+	return op(a, b)
+}
+func add(x, y int) int {
+	return x + y
+}
 func main() {
-	words := []string{"cat", "go", "banana", "a", "hello", "hat", "to", "do"}
-	grouped := make(map[string][]string)
-	for _, word := range words {
-		lengthKey := strconv.Itoa(len(word))
-		grouped[lengthKey] = append(grouped[lengthKey], word)
-	}
+	a := add_func(3, 4, add)
+	fmt.Println(a)
 
-	for length, wordList := range grouped {
-		fmt.Printf("Length %s: %v\n", length, wordList)
-	}
 }
