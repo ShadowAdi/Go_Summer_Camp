@@ -9,8 +9,15 @@ func reverse(slice []int) {
 }
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5}
-	fmt.Println("Before:", arr)
-	reverse(arr)
-	fmt.Println("After:", arr)
+	arr := make([]int, 5)
+	for i, _ := range arr {
+		arr[i] = i + 1
+	}
+
+	arr = append(arr, 4)
+
+	moreNumbers := []int{8, 9, 10}
+	arr = append(arr, moreNumbers...)
+	fmt.Println("After appending another slice:", arr)
+
 }
