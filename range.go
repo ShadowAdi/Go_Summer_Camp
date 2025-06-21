@@ -1,38 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	ans := "aditya"
-	ans1 := "dityaa"
-
-	if isAnagram(ans, ans1) {
-		fmt.Println("They are equal")
-	} else {
-		fmt.Println("They are not equal")
-	}
-}
-
-func isAnagram(a, b string) bool {
-	if len(a) != len(b) {
-		return false
+	words := []string{"cat", "go", "banana", "a", "hello", "hat", "to", "do"}
+	grouped := make(map[string][]string)
+	for _, word := range words {
+		lengthKey := strconv.Itoa(len(word))
+		grouped[lengthKey] = append(grouped[lengthKey], word)
 	}
 
-	m1 := make(map[rune]int)
-	m2 := make(map[rune]int)
-
-	for _, ch := range a {
-		m1[ch]++
+	for length, wordList := range grouped {
+		fmt.Printf("Length %s: %v\n", length, wordList)
 	}
-	for _, ch := range b {
-		m2[ch]++
-	}
-
-	for k, v := range m1 {
-		if m2[k] != v {
-			return false
-		}
-	}
-
-	return true
 }
