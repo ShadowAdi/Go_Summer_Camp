@@ -2,16 +2,14 @@ package main
 
 import "fmt"
 
-func addT(a, b int64) int64 {
-	return a + b
+func factorial(n int64) int64 {
+	if n == 0 {
+		return 1
+	}
+	return n * factorial(n-1)
 }
 
 func main() {
-	a := 12
-	if a > 10 {
-		fmt.Printf("The Value of a is: %d ", a)
-	} else {
-		fmt.Printf("The Value of a is less than 10: %d ", a)
-	}
-
+	result := factorial(5)
+	fmt.Println("Factorial of 5 is:", result)
 }
